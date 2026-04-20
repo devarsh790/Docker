@@ -13,16 +13,14 @@ const db = mysql.createConnection({
 });
 
 app.get("/", (req, res) => {
-  res.send("Backend Running 🚀 - Devarsh Soni");
+  res.send("Backend Working 🚀 - Devarsh Soni");
 });
 
-app.get("/data", (req, res) => {
+app.get("/users", (req, res) => {
   db.query("SELECT * FROM users", (err, result) => {
     if (err) return res.send(err);
     res.json(result);
   });
 });
 
-app.listen(5000, () => {
-  console.log("Server running on port 5000");
-});
+app.listen(5000, () => console.log("Server running"));
