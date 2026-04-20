@@ -1,13 +1,12 @@
+CREATE DATABASE IF NOT EXISTS testdb;
+USE testdb;
 
-const express = require('express');
-const path = require('path');
+CREATE TABLE users (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(50)
+);
 
-const app = express();
-app.use(express.static(__dirname));
-
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'index.html'));
-});
-
-const PORT = 3000;
-app.listen(PORT, () => console.log(`Frontend running on port ${PORT}`));
+INSERT INTO users (name) VALUES
+('Devarsh'),
+('Docker User'),
+('3-Tier App');
