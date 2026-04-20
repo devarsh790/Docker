@@ -1,23 +1,21 @@
+import React, { useEffect, useState } from "react";
 
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Dockerized Full Stack App</title>
-</head>
-<body>
-  <h1>Dockerized Full Stack Web Application</h1>
-  <button onclick="loadMessage()">Get Backend Message</button>
-  <p id="msg"></p>
+function App() {
+  const [users, setUsers] = useState([]);
 
-<script>
-function loadMessage(){
- fetch('http://localhost:5000/api/message')
-  .then(res => res.json())
-  .then(data => {
-    document.getElementById("msg").innerText = data.message;
-  });
+  useEffect(() => {
+    fetch("http://localhost:5000/users")
+      .then(res => res.json())
+      .then(data => setUsers(data));
+  }, []);
+
+  return (
+    <div>
+      <h1>3-Tier App</h1>
+      <h2>Devarsh Soni</h2>
+      {users.map(u => <p key={u.id}>{u.name}</p>)}
+    </div>
+  );
 }
-</script>
 
-</body>
-</html>
+export default App;
