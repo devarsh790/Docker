@@ -3,10 +3,10 @@ USE testdb;
 
 CREATE TABLE users (
   id INT AUTO_INCREMENT PRIMARY KEY,
-  name VARCHAR(50)
+  name VARCHAR(50),
+  password VARCHAR(255)
 );
 
-INSERT INTO users (name) VALUES
-('Devarsh'),
-('Docker User'),
-('3-Tier App');
+INSERT INTO users (name, password) VALUES
+('Devarsh', 'test'),
+('Admin', 'test');
